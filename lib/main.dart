@@ -64,6 +64,29 @@ class _MyHomePageState extends State<MyHomePage> {
           child: ListView(
         padding: EdgeInsets.all(10.0),
         children: <Widget>[
+          TextField(
+            obscureText: false,
+            style: TextStyle(),
+            decoration: InputDecoration(
+                contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                hintText: "Email",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(32.0),
+                )),
+          ),
+          Material(
+            elevation: 5,
+            borderRadius: BorderRadius.circular(32.0),
+            color: Colors.amberAccent,
+            child: MaterialButton(
+              onPressed: () {},
+              padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+              child: Text(
+                "signin",
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
           TextButton(
               onPressed: () {
                 alertfunction(context);
