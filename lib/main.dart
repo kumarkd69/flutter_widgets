@@ -81,38 +81,100 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
 
-    var children2 = [
-      Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Image.asset('assets/1.png'),
-          SizedBox(
-            height: 5,
-          ),
-          txtField1,
-          SizedBox(
-            height: 20,
-          ),
-          loginButton,
-        ],
-      ),
-    ];
-
-    var center = Center(
-      child: ListView(
-        children: children2,
-      ),
-    );
-
     return Scaffold(
-      backgroundColor: Colors.grey,
       appBar: AppBar(
         title: Text(widget.title),
         elevation: 6.0,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: center,
+      body: ListView(
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              // Image.asset('assets/1.png'),
+              SizedBox(
+                height: 5,
+              ),
+              // txtField1,
+              SizedBox(
+                height: 20,
+              ),
+
+//Screen 1 Navigation Code
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return SecondPage();
+                      },
+                    ),
+                  );
+                },
+                child: Text(
+                  'Push To Next',
+                  style: GoogleFonts.montserrat(fontSize: 25.0),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class SecondPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Second Page'),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return ThirdPage();
+                    },
+                  ),
+                );
+              },
+              child: Text('Pop to previous screen',
+                  style: GoogleFonts.montserrat(fontSize: 25.0)),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ThirdPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('third Page'),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text('this is Thirdscreen',
+                  style: GoogleFonts.montserrat(fontSize: 25.0)),
+            ),
+          ],
+        ),
       ),
     );
   }
